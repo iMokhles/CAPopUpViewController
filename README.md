@@ -11,7 +11,7 @@ is a simple popup menu see screenshot for more info
 
 ### Usage
 
-CAPostEditorViewControlleravailable through [CocoaPods](http://cocoapods.org). To install
+CAPopUpViewController available through [CocoaPods](http://cocoapods.org). To install
 it, add the following line to your Podfile:
 
     pod "CAPopUpViewController"
