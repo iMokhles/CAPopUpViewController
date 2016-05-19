@@ -6,7 +6,7 @@ is a simple popup menu see screenshot for more info
 [![Platform](https://img.shields.io/cocoapods/p/CAPopUpViewController.svg?style=flat)](http://cocoadocs.org/docsets/CAPopUpViewController)
 
 <p align="center">
-  <img width="420" src="screenshot.jpg"/>
+  <img width="420" src="CAPopUpViewController.jpg"/>
 </p>
 
 ### Usage
