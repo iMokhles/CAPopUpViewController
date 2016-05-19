@@ -1,5 +1,65 @@
 # CAPopUpViewController
-is a simple pop up menu see screenshot for more info
+is a simple popup menu see screenshot for more info
+
+[![Version](https://img.shields.io/cocoapods/v/CAPopUpViewController.svg?style=flat)](http://cocoadocs.org/docsets/CAPopUpViewController)
+[![License](https://img.shields.io/cocoapods/l/CAPopUpViewController.svg?style=flat)](http://cocoadocs.org/docsets/CAPopUpViewController)
+[![Platform](https://img.shields.io/cocoapods/p/CAPopUpViewController.svg?style=flat)](http://cocoadocs.org/docsets/CAPopUpViewController)
+
+<p align="center">
+  <img width="420" src="screenshot.png"/>
+</p>
+
+### Usage
+
+CAPostEditorViewControlleravailable through [CocoaPods](http://cocoapods.org). To install
+it, add the following line to your Podfile:
+
+    pod "CAPopUpViewController"
+    
+or drag the files manually then import it
+
+    #import "CAPopUpViewController.h"
+
+### Example
+
+    NSString *sendName = [[NSBundle mainBundle] localizedStringForKey:@"Send" value:@"" table:nil];
+    NSString *schuName = [[NSBundle mainBundle] localizedStringForKey:@"Schedule" value:@"" table:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CAPopUpViewController *popup = [[CAPopUpViewController alloc] init];
+        popup.itemsArray = @[sendName, schuName];
+        popup.sourceView = self.contentView.sendButton;
+        popup.backgroundColor = [UIColor whiteColor];
+        popup.backgroundImage = nil;
+        popup.itemTitleColor = [UIColor blackColor];
+        popup.itemSelectionColor = [UIColor lightGrayColor];
+        popup.arrowDirections = UIPopoverArrowDirectionAny;
+        popup.arrowColor = [UIColor whiteColor];
+        [popup setPopCellBlock:^(CAPopUpViewController *popupVC, UITableViewCell *popupCell, NSInteger row, NSInteger section) {
+            if ([popupCell.textLabel.text isEqualToString:sendName]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [popupVC dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                });
+                
+            } else if ([popupCell.textLabel.text isEqualToString:schuName]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [popupVC dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                });
+            }
+        }];
+        [self.delegate presentViewController:popup animated:YES completion:^{
+            
+        }];
+    });
+
+## Author
+
+[Mokhlas Hussein (iMokhles)](https://twitter.com/imokhles), [mokhleshussien@gmail.com](mailto:mokhleshussien@aol.com)
 
 ### License
 
